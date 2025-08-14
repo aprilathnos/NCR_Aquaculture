@@ -1,0 +1,19 @@
+?TITLE: Experimental Design
+
+? This code produces a simultaneous orthogonal fractional design with
+? 3 labelled alternatives
+? 8 total prices 
+? 2 possible forms: 0 = Frozen filets; 1 = Fresh filets
+? 2 possible sources: 0 = Farm-raised; 1 = Wild-caught
+? 2 possible regions of origin; 0 = NCR; 1 = Non-NCR
+
+
+Design
+; alts = WALLEYE, YELLOWPERCH, TROUT, NO
+; rows = 24
+; orth = sim 
+; block = 4
+; model:
+U(WALLEYE)       = a01 + a1*PRICE1[ 9, 10, 11, 12, 13, 14, 15, 16] +  a2*FORM[0,1] + a3*SOURCE[0,1] + a4*ORIGIN[0,1] /
+U(YELLOWPERCH)   = a02 + a1*PRICE1 +  a2*FORM[0,1] + a3*SOURCE + a4*ORIGIN /
+U(TROUT)         = a03 + a1*PRICE1 +  a2*FORM + a3*SOURCE  + a4*ORIGIN  $
