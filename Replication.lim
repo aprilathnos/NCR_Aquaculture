@@ -1,0 +1,61 @@
+ECLogit
+    ; CheckData
+    ; lhs = CHOICE, NCHSET, ALT
+    ; choices = ALT1, ALT2, ALT3, ALT4
+    ; Halton
+    ; show
+    ; crosstab
+    ; Export Output
+    ; Pts = 500
+    ; corr
+    ; Pds = 6
+    ; ECM = (ALT1, ALT2, ALT3), (ALT4)
+    ; rpl
+    ; fcn = ASC_WALL(n), ASC_YELL(n), ASC_TROU(n), b2(n), b3(n), b4(n)
+    ; model:
+    U(ALT1) = ASC_WALL + b1*PRICE + b2*ORIGIN + b3*SOURCE +b4*FORM /
+    U(ALT2) = ASC_YELL + b1*PRICE + b2*ORIGIN + b3*SOURCE +b4*FORM /
+    U(ALT3) = ASC_TROU + b1*PRICE + b2*ORIGIN + b3*SOURCE +b4*FORM $
+
+
+WALD
+    ; Start = b
+    ; Var = varb
+    ; Export Output
+    ; Labels = a1, a2, a3, b2, b3, b4, b1, d1, d2, d3, d4, d5, d6, bd1, bd2, bd3, bd4, bd5, bd6, bd7, bd8, bd9, bd10, bd11, bd12, bd13, bd14, bd15, s1, s2, n1, n2, n3, n4, n5, n6
+    ; Fn1 = -a1/b1 		?Mean WTP for Walleye
+    ; Fn2 = -a2/b1		?Mean WTP for Yellow Perch
+    ; Fn3 = -a3/b1		?Mean WTP for Trout
+    ; Fn4 = b2/b1		?Mean WTP for NCR Production
+    ; Fn5 = -b3/b1 		?Mean WTP for Wild Caught
+    ; Fn6 =  -b4/b1		?Mean WTP for Fresh Fillets
+    ; Fn7 = -n1/b1		?Std Dev WTP for Walleye
+    ; Fn8 = -n2/b1		?Std Dev WTP for Yellow Perch
+    ; Fn9 = -n3/b1		?Std Dev WTP for Trout
+    ; Fn10 = -n4/b1		?Std Dev WTP for NCR
+    ; Fn11 = -n5/b1		?Std Dev WTP for Wildcaught
+    ; Fn12 = -n6/b1		?Std Dev WTP for Fresh
+    ; K&R
+    ; Halton
+    ; Pts = 1000 $
+
+ WALD
+    ; Start = b
+    ; Var = varb
+    ; Export Output
+    ; Labels = a1, a2, a3, b2, b3, b4, b1, d1, d2, d3, d4, d5, d6, bd1, bd2, bd3, bd4, bd5, bd6, bd7, bd8, bd9, bd10, bd11, bd12, bd13, bd14, bd15, s1, s2, n1, n2, n3, n4, n5, n6
+    ; Fn1 = -(a1-a2)/b1 	?Marginal WTP for Walleye against Yellow Perch
+    ; Fn2 = -(a2-a3)/b1		?Marginal WTP for Yellow Perch against Trout
+    ; Fn3 = -(a3-a1)/b1		?Marginal WTP for Trout against Walleye
+    ; Fn4 = -(a1-a3)/b1		?Marginal WTP for Walleye against Trout
+    ; Fn5 = -(a3-a2)/b1		?Marginal WTP for Trout against Yellow Perch
+    ; Fn6 = (b2+b3)/b1          ?Marginal WTP for NCR Production over Wild Caught
+    ; Fn7 = -(b3-b4)/b1 	?Marginal WTP for Wild Caught over Fresh Fillets
+    ; Fn8 = (b2+b4)/b1		?Marginal WTP for NCR Production over Fresh Fillets
+    ; Fn9 = -(n1-n2)/b1 	?Marginal WTP Std Dev for Walleye against Yellow Perch
+    ; Fn10 = -(n1-n3)/b1	?Marginal WTP Std Dev for Walleye against Trout
+    ; Fn11 = -(n2-n3)/b1	?Marginal WTP Std Dev for Yellow Perch against Trout
+    ; Fn12 = -(n3-n2)/b1	?Marginal WTP Std Dev for Trout against Yellow Perch
+    ; K&R
+    ; Halton
+    ; Pts = 1000 $
